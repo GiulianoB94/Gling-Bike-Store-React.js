@@ -1,12 +1,16 @@
-import React ,{ useState } from "react";
-
+import React, {useState} from 'react';
 
 const ItemCount = (props) => {
 
     const [stock, setStock] = useState(props.stock)
     const [unidades, setUnidades] = useState(0)
 
+    
+    
+  
     const handleStock = {
+        
+
         sumarStock:() => {
             if (stock===0){
                 alert('Out of stock available')
@@ -24,12 +28,13 @@ const ItemCount = (props) => {
             } 
 
             }
+
         }
 
 
 
         return(
-            <div className= 'button-ItemCount'>
+            <div className="Counter">
                 <button onClick={handleStock.sumarStock} disabled={stock==='0'}>+</button>
                 <p>{unidades}</p>
                 <button onClick={handleStock.restarStock} disabled={stock==='0'}>-</button>
@@ -37,9 +42,5 @@ const ItemCount = (props) => {
             </div>
         )
     }
-
-   
-
-
 
 export default ItemCount;

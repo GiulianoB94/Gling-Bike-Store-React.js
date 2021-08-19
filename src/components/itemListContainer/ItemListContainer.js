@@ -1,18 +1,18 @@
 import React from 'react';
-import NavBar from '../navBar/NavBar';
-import Banner from './banner/Banner';
-import ItemCount from '../itemCount/ItemCount';
+import Banner from '../Banner/Banner'
 import Itemlist from './itemList/ItemList';
+import ItemDetailContainer from '../itemDetailContainer/ItemDetailContainer';
+
 
 const ItemListContainer = (props) => {
+
     return(
         <>
-            <NavBar/>
-            <Banner/>
+            
             <h1>{props.titulo}</h1>
             <h2>{props.subtitulo}</h2>
-            <ItemCount stock = '5'/>
             <Itemlist/>
+           <ItemDetailContainer/> 
         </>
     )
 }

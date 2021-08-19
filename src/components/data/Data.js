@@ -6,7 +6,7 @@ const data = [
         color: 'blue',
         price: '$ 200,00',
         stock: 15,
-        img: "https://static.wixstatic.com/media/1e47b2_8744fed3fccb4048854021ff87959874.jpg/v1/fill/w_335,h_223,al_c,q_80,usm_0.66_1.00_0.01/1e47b2_8744fed3fccb4048854021ff87959874.webp"
+        img:  "https://static.wixstatic.com/media/1e47b2_8744fed3fccb4048854021ff87959874.jpg/v1/fill/w_335,h_223,al_c,q_80,usm_0.66_1.00_0.01/1e47b2_8744fed3fccb4048854021ff87959874.webp"
     },
 
   
