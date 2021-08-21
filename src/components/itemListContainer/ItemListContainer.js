@@ -1,18 +1,21 @@
 import React from 'react';
-import Banner from '../Banner/Banner'
 import Itemlist from './itemList/ItemList';
-import ItemDetailContainer from '../itemDetailContainer/ItemDetailContainer';
+import { Container,Col,Row } from 'react-bootstrap';
 
 
 const ItemListContainer = (props) => {
 
     return(
         <>
-            
+        <div>
             <h1>{props.titulo}</h1>
-            <h2>{props.subtitulo}</h2>
-            <Itemlist/>
-           <ItemDetailContainer/> 
+                <h2>{props.subtitulo}</h2>
+            <Container>
+                <Row>
+                    <Col><Itemlist/></Col>
+                </Row>
+            </Container>
+        </div>
         </>
     )
 }

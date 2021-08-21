@@ -2,11 +2,12 @@ import data from '../../data/Data';
 import Item from './item/Item';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core';
 
 
 const ItemList = () => {
 
-
+    const classes = useStyles()
     const {Shop} =useParams()
     const [productos, setProductos] = useState([])
     const [cargando, setCargando] = useState(true)
@@ -34,6 +35,7 @@ const ItemList = () => {
 
     return (
         <>
+        <div className={classes.ItemList}>
         {cargando ? <h2>Loading Products..</h2> :
         productos.map((producto)=>
             <Item 
@@ -47,8 +49,23 @@ const ItemList = () => {
             id={producto.id} />
         )
         }
+        </div>
         </>
     )
 }
+
+
+
+const useStyles = makeStyles ((theme) => ({
+
+    ItemList : {
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        margin: "0 auto"
+    }
+
+
+}))
 
 export default ItemList;

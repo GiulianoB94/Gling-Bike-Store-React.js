@@ -1,16 +1,13 @@
 import React, {useState} from 'react';
+import {ButtonGroup,Button,Container,Col,Row} from 'react-bootstrap'; 
+import { Card, makeStyles } from '@material-ui/core';
 
 const ItemCount = (props) => {
-
+    const classes = useStyles()
     const [stock, setStock] = useState(props.stock)
     const [unidades, setUnidades] = useState(0)
 
-    
-    
-  
     const handleStock = {
-        
-
         sumarStock:() => {
             if (stock===0){
                 alert('Out of stock available')
@@ -30,17 +27,34 @@ const ItemCount = (props) => {
             }
 
         }
-
-
-
+      
         return(
-            <div className="Counter">
-                <button onClick={handleStock.sumarStock} disabled={stock==='0'}>+</button>
-                <p>{unidades}</p>
-                <button onClick={handleStock.restarStock} disabled={stock==='0'}>-</button>
-                <p>Available Stock: {stock} </p>
-            </div>
+            <Card fluid className={classes.Counter}>
+                <ButtonGroup size="sm">
+                    <Button  onClick={handleStock.restarStock} disabled={stock==='0'} variant="primary" size="sm" >-</Button>
+                    <div style={{ width: "70px",}}>{unidades}</div>
+                    <Button onClick={handleStock.sumarStock} disabled={stock==='0'} variant="primary" size="sm">+</Button>
+                </ButtonGroup>
+                <p style={{fontFamily: 'Signika', marginTop:'10%'}}>Available Stock: {stock} </p>
+            </Card>
         )
-    }
+}
 
-export default ItemCount;
+         
+        const useStyles = makeStyles ((theme) => ({
+            Counter: {
+                marginTop: "3%",
+                border: "solid thin 1px #000" 
+            },
+
+
+
+        }))
+        export default ItemCount;
+
+                   /* <Row>
+                    <Col> <Button clasName={classes.Button}  onClick={handleStock.restarStock} disabled={stock==='0'} variant="primary" size="sm">-</Button></Col>
+                        <Col><div className={classes.units}>{unidades}</div></Col>
+                    <Col> <Button clasName={classes.Button} onClick={handleStock.sumarStock} disabled={stock==='0'} variant="primary" size="sm">+</Button></Col>    
+                    </Row>
+                    <br/>*/

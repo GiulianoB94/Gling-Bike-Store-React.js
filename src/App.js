@@ -1,4 +1,5 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemListContainer from '../src/components/itemListContainer/ItemListContainer';
 import NavBar from './components/navBar/NavBar';
 import React from "react";
@@ -16,16 +17,15 @@ import Footer from './components/Footer/Footer'
 function App() {
   return (
     <BrowserRouter>
-
       <div className="App">
         <Layout>
             <NavBar/>
             <Banner/>
             <Switch>
-            <Route path="/home" exact> 
+            <Route path="/" > 
               <ItemListContainer titulo = 'Proyecto React' subtitulo= 'Gling Bike Store'/>
             </Route>
-            <Route path="/:Shop" exact>
+            <Route path="/:Shop" >
               <ItemDetailContainer titulo = 'Shop' subtitulo= '75% OFF'/>
             </Route>
             </Switch>

@@ -1,43 +1,53 @@
 import React, { Component } from "react"
-import { makeStyles } from '@material-ui/core';
+import { CardContent, makeStyles } from '@material-ui/core';
 import facebook from "../Footer/facebook.png"
 import twitter from "../Footer/twitter.png"
 import youtube from "../Footer/youtube.png"
 import pinterest from "../Footer/pinterest.png"
 import instagram from "../Footer/instagram.png"
+import {Card, Button,InputGroup, FormControl} from 'react-bootstrap'; 
 
 const Footer = () => {
     const classes = useStyles()
     return (
         <>
-        <div className= {classes.contFooter}>
+
+<Card className= {classes.contFooter}>
             <div className={classes.media}>
-            <ul className={classes.ul}>
-            <li className={classes.li}><a href="#"><img className={classes.img} src={facebook}/></a></li>
-            <li className={classes.li}><a href="#"><img className={classes.img} src={twitter}/></a></li>
-            <li className={classes.li}><a href="#"><img className={classes.img} src={youtube}/></a></li>
-            <li className={classes.li}><a href="#"><img className={classes.img} src={pinterest}/></a></li> 
-            <li className={classes.li}><a href="#"><img className={classes.img} src={instagram}/></a></li> 
-            </ul>   
+                <ul className={classes.ul}>
+                    <li className={classes.li}><a href="#"><img className={classes.img} src={facebook}/></a></li>
+                    <li className={classes.li}><a href="#"><img className={classes.img} src={twitter}/></a></li>
+                    <li className={classes.li}><a href="#"><img className={classes.img} src={youtube}/></a></li>
+                    <li className={classes.li}><a href="#"><img className={classes.img} src={pinterest}/></a></li> 
+                    <li className={classes.li}><a href="#"><img className={classes.img} src={instagram}/></a></li> 
+                </ul>   
             </div>
             <div className={classes.footer}>
-                <p className={classes.footp}>SUSCRIBE FOR UPDATES</p>
                 <div className={classes.cont}>
-                <input className={classes.email} type="text" value="Enter your email here" ></input>
-                <input className={classes.input} type="submit" value="Send"></input>
+                <p className={classes.footp}>SUSCRIBE FOR UPDATES</p>
+                <InputGroup className="mb-3">
+                    <FormControl
+                    placeholder="Your Email here.."
+                    aria-label="Recipient's username"
+                    aria-describedby="basic-addon2"
+                    />
+                    <Button variant="outline-secondary" id="button-addon2">
+                    Send
+                    </Button>
+                </InputGroup>
                 </div>
                 <p className={classes.footcop}>©2021 by Giuliano Bondi. All rights reserved</p>
             </div>
-        </div>    
+        </Card> 
+
+
+         
+ 
         </>
     )
 }
 
 const useStyles = makeStyles ((theme) => ({
-
-    contFooter: {
-        marginTop: "100%"
-    },
 
     media: {
         backgroundColor: "#b99867",
@@ -81,6 +91,7 @@ const useStyles = makeStyles ((theme) => ({
     },
 
     cont: {
+        marginTop: "5%",
         display: "inline-block",
         justifyContent: "center",
         alignItems: "center",
@@ -117,3 +128,6 @@ const useStyles = makeStyles ((theme) => ({
 
 
 export default Footer;
+
+
+/*     */
