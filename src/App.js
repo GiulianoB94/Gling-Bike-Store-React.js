@@ -22,11 +22,14 @@ function App() {
             <NavBar/>
             <Banner/>
             <Switch>
-            <Route path="/" > 
-              <ItemListContainer titulo = 'Proyecto React' subtitulo= 'Gling Bike Store'/>
+            <Route path="/" exact> 
+              <ItemListContainer titulo = '' subtitulo= 'Gling Bike Store'/>
             </Route>
-            <Route path="/:Shop" >
-              <ItemDetailContainer titulo = 'Shop' subtitulo= '75% OFF'/>
+            <Route path="/:name/:">
+              <ItemDetailContainer titulo = 'CATEGORIES' subtitulo= '75% OFF'/>
+            </Route>
+            <Route path="/:name/:id">
+              <ItemDetailContainer titulo = 'PRUEBA' subtitulo= '75% OFF'/>
             </Route>
             </Switch>
             <Footer/>

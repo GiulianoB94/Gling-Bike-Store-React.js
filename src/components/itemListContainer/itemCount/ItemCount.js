@@ -35,7 +35,7 @@ const ItemCount = (props) => {
                     <div style={{ width: "70px",}}>{unidades}</div>
                     <Button onClick={handleStock.sumarStock} disabled={stock==='0'} variant="primary" size="sm">+</Button>
                 </ButtonGroup>
-                <p style={{fontFamily: 'Signika', marginTop:'10%'}}>Available Stock: {stock} </p>
+                <p style={{fontFamily: 'Signika', marginTop:'5%'}}>Available Stock: {stock} </p>
             </Card>
         )
 }
@@ -51,10 +51,3 @@ const ItemCount = (props) => {
 
         }))
         export default ItemCount;
-
-                   /* <Row>
-                    <Col> <Button clasName={classes.Button}  onClick={handleStock.restarStock} disabled={stock==='0'} variant="primary" size="sm">-</Button></Col>
-                        <Col><div className={classes.units}>{unidades}</div></Col>
-                    <Col> <Button clasName={classes.Button} onClick={handleStock.sumarStock} disabled={stock==='0'} variant="primary" size="sm">+</Button></Col>    
-                    </Row>
-                    <br/>*/

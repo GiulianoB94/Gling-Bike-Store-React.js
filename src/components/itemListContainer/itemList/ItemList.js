@@ -3,6 +3,7 @@ import Item from './item/Item';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
+import {Spinner} from 'react-bootstrap'; 
 
 
 const ItemList = () => {
@@ -36,7 +37,13 @@ const ItemList = () => {
     return (
         <>
         <div className={classes.ItemList}>
-        {cargando ? <h2>Loading Products..</h2> :
+        {cargando ?
+         <div className={classes.Spinner}>
+            <Spinner animation="grow" variant="primary" />
+            <Spinner animation="grow" variant="primary" />
+            <Spinner animation="grow" variant="primary" />
+        </div> 
+        :
         productos.map((producto)=>
             <Item 
             key={producto.id} 
@@ -63,9 +70,15 @@ const useStyles = makeStyles ((theme) => ({
         flexWrap: "wrap",
         justifyContent: "center",
         margin: "0 auto"
+    },
+
+    Spinner : {
+        height:  300,
+        marginTop: 200,
+        display: "flex",
+        justifyContent: "space-between"
+
     }
-
-
 }))
 
 export default ItemList;

@@ -5,21 +5,23 @@ import ItemCount from '../../itemCount/ItemCount';
 import {Card} from 'react-bootstrap'; 
 
 
-const Item = ({name,price,color,stock,img}) => {
+const Item = ({name,price,color,stock,img,id}) => {
     const classes = useStyles()
 
     return(
-        <div className={classes.item} >
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={img}/>
-                <Card.Body>
-                    <Card.Title style={{fontFamily: 'Signika'}}>{name}</Card.Title>
-                    <Card.Title style={{fontFamily: 'Signika'}}>{color}</Card.Title>
-                    <Card.Title >{price}</Card.Title>
-                </Card.Body>
-            </Card>
-            <Card.Title className="counter"><ItemCount stock={stock}/></Card.Title>
-        </div>
+            <div className={classes.item}>
+                <Link to={`/${name}/${id}`} className={classes.Link}>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src={img}/>
+                        <Card.Body>
+                            <Card.Title style={{fontFamily: 'Signika'}}>{name}</Card.Title>
+                            <Card.Title style={{fontFamily: 'Signika'}}>{color}</Card.Title>
+                            <Card.Title >{price}</Card.Title>
+                        </Card.Body>
+                    </Card>
+                </Link>  
+                <Card.Title className="counter"><ItemCount stock={stock}/></Card.Title>
+            </div>
     )
 }
 
@@ -30,6 +32,10 @@ const useStyles = makeStyles ((theme) => ({
         margin: "4rem 2rem 2rem 2rem",
         lineHeight: 2,
     },
+
+    Link: {
+        textDecoration: "none"
+    }
 
 }))
 

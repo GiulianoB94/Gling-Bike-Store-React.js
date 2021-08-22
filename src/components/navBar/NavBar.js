@@ -17,11 +17,10 @@ const NavBar = () => {
             <p className={classes.Subt}>Urban Bikes</p>
         </div>
     </Navbar.Brand>
-    <Nav>
-      <Nav.Link className={classes.Link} href="#home">HOME</Nav.Link>
-      <Nav.Link className={classes.Link} href="#features">SHOP</Nav.Link>
-      <Nav.Link className={classes.Link} href="#pricing">CONTACT</Nav.Link>
-      <Nav.Link className={classes.cart} href="#pricing"><LocalMallIcon fontSize="large" color="primary" /></Nav.Link>
+    <Nav className={classes.SectCont}>
+     <Link to="/" className={classes.Link}>HOME</Link>
+     <Link to="/categories" className={classes.Link}>CATEGORIES</Link>
+      <Nav.Link className={classes.cart}><LocalMallIcon fontSize="large" color="primary" /></Nav.Link>
     </Nav>
     </Container>
   </Navbar>
@@ -52,15 +51,24 @@ const useStyles = makeStyles ((theme) => ({
         color:  "#c59650",
     },
 
+
+    SectCont: {
+        margin: "auto",
+        paddingLeft: "35%"
+    },
+
     Link: {
         color:  "#c59650",
         fontFamily: 'Signika',
-        fontSize: 20        
+        fontSize: 20 ,
+        textDecoration: "none" ,
+        marginRight: "15%",
+        letterSpacing: 1     
     },
 
     cart: {
-        marginLeft: "20%",
-        marginTop: "-6px",
+        marginLeft: "0%",
+        marginTop: "-15px",
     }
 
 }))
