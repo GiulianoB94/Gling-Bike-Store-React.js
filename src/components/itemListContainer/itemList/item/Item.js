@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
-import ItemCount from '../../itemCount/ItemCount';
 import {Card} from 'react-bootstrap'; 
 
 
-const Item = ({name,price,color,stock,img,id}) => {
+const Item = ({name,price,color,stock,img,imgbs,id,frame}) => {
     const classes = useStyles()
 
     return(
@@ -15,12 +14,10 @@ const Item = ({name,price,color,stock,img,id}) => {
                         <Card.Img variant="top" src={img}/>
                         <Card.Body>
                             <Card.Title style={{fontFamily: 'Signika'}}>{name}</Card.Title>
-                            <Card.Title style={{fontFamily: 'Signika'}}>{color}</Card.Title>
                             <Card.Title >{price}</Card.Title>
                         </Card.Body>
                     </Card>
                 </Link>  
-                <Card.Title className="counter"><ItemCount stock={stock}/></Card.Title>
             </div>
     )
 }

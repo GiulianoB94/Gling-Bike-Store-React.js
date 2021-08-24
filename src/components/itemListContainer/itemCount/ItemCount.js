@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {ButtonGroup,Button,Container,Col,Row} from 'react-bootstrap'; 
 import { Card, makeStyles } from '@material-ui/core';
 
-const ItemCount = (props) => {
+const ItemCount = (props,cant) => {
+
     const classes = useStyles()
+ 
     const [stock, setStock] = useState(props.stock)
     const [unidades, setUnidades] = useState(0)
-
     const handleStock = {
         sumarStock:() => {
             if (stock===0){
@@ -14,6 +15,7 @@ const ItemCount = (props) => {
             } else {
                 setUnidades(unidades +1)
                 setStock(stock -1)
+                onAdd(cant+1)
             }
         },
         restarStock: () => {
@@ -22,16 +24,28 @@ const ItemCount = (props) => {
             } else {
                 setUnidades(unidades -1)
                 setStock(stock+1)
+                onAdd(cant-1)
             } 
 
             }
 
+
+           
         }
+
+        useEffect (() => {
+            onAdd(cant)
+        }, [cant])
+
+
+
+      
+        
       
         return(
             <Card fluid className={classes.Counter}>
                 <ButtonGroup size="sm">
-                    <Button  onClick={handleStock.restarStock} disabled={stock==='0'} variant="primary" size="sm" >-</Button>
+                    <Button  onClick={handleStock.restarStock} disabled={stock==='0'} variant="primary" size="sm">-</Button>
                     <div style={{ width: "70px",}}>{unidades}</div>
                     <Button onClick={handleStock.sumarStock} disabled={stock==='0'} variant="primary" size="sm">+</Button>
                 </ButtonGroup>

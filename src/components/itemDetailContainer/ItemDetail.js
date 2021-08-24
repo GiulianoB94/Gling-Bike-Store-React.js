@@ -1,20 +1,75 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ItemCount from '../itemListContainer/itemCount/ItemCount';
+import { makeStyles } from '@material-ui/core';
+import { Container, Row , Col, Button} from 'react-bootstrap';
 
 
 
 
-const ItemDetail = ({img,name,price,color,stock,id}) => {
+const ItemDetail = ({imgbs,name,price,color,id,frame,stock,cant}) => {
+
+    const classes = useStyles()
+
+    const [itemCountVisible, setItemCountVisible] = useState(true)
+    const [itemsCount, setItemsCount] = useState(0)
+
+    const onAdd = ([stock]) => {
+        setItemsCount([stock])
+    }
+
+    const onAddToCart = () => {
+        setItemCountVisible(false)
+    }
+
+    const onBuy = () => {
+        setItemCountVisible(false)
+    }
+
+   
+
     return(
-        <div className='item'>
-            <img src={img}/>
-            <h1>{id}</h1>
-            <h2>{name}</h2>
-            <h3>{price}</h3>
-            <h4>{color}</h4>
-            <ItemCount stock={stock}/>
-        </div>
+        <Container className={classes.item}>
+            <Row>
+                <Col>
+                    <img className={classes.img} src={imgbs}/>
+                </Col>
+                <Col>
+                    <div className={classes.ContDetail}>
+                        <h1>{id}</h1>
+                        <h2>{name}</h2>
+                        <h2>Frame: {frame}</h2>
+                        <h2>{color}</h2>
+                        <h3>{price}</h3>
+                        {itemCountVisible && <ItemCount stock={cant} onAdd={onAdd} />}
+                        {itemsCount}
+                        <Button onClick={onAddToCart} >Agregar al carrito</Button>
+                        <Button onClick={onBuy} >Comprar</Button>
+                    </div>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 
-export default ItemDetail ;
+
+
+
+const useStyles = makeStyles ((theme) => ({
+
+    img: {
+        width: 600,
+        heigh: 600
+    },
+
+    ContDetail: {
+        marginTop: "20%",
+        border: "solid 1px #000"
+    }
+  
+}))
+
+
+export default ItemDetail;
+
+
+

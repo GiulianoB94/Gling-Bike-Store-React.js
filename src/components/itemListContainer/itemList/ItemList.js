@@ -48,8 +48,10 @@ const ItemList = () => {
             <Item 
             key={producto.id} 
             img={producto.img}
+            imgbs={producto.imgbs}
             name={producto.name} 
             price={producto.price} 
+            frame={producto.frame}
             color={producto.color} 
             stock={producto.stock}
             Shop={producto.Shop}

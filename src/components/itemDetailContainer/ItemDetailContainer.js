@@ -18,15 +18,12 @@ const ItemDetailContainer = (props) => {
 
     // const {id} = useParams()
    
-
-
-
     useEffect(()=> {
         const productos = ()=> {
             return new Promise ((resolve,reject) => {
                 setTimeout (() => {
                     resolve(data)
-                },3000)
+                },2000)
             })
         }
 
@@ -53,12 +50,16 @@ console.log (productos)
             <Spinner animation="grow" variant="primary" />
         </div> 
         :
-            <ItemDetail 
-            img={producto.img}
-            name={producto.name} 
-            price={producto.price} 
-            color={producto.color} 
-            stock={producto.stock} />
+            
+            <div className={classes.itemCont}>
+                <ItemDetail 
+                imgbs={producto.imgbs}
+                name={producto.name} 
+                frame={producto.frame}
+                color={producto.color} 
+                price={producto.price} 
+                stock={producto.stock} />
+            </div>
         }
         
         </>
@@ -77,14 +78,16 @@ const useStyles = makeStyles ((theme) => ({
 
     Cont : {
         marginTop: "5%"
+    },
+
+    itemCont : {
+        marginTop: "10%",
+        marginBottom: "10%",
     }
 
 
 
 }))
-
-
-
 
 
 export default ItemDetailContainer;
