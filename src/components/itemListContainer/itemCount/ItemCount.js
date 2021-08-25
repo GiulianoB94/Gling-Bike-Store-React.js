@@ -2,20 +2,23 @@ import React, {useEffect, useState} from 'react';
 import {ButtonGroup,Button,Container,Col,Row} from 'react-bootstrap'; 
 import { Card, makeStyles } from '@material-ui/core';
 
-const ItemCount = (props,cant) => {
+const ItemCount = (props) => {
 
     const classes = useStyles()
  
     const [stock, setStock] = useState(props.stock)
     const [unidades, setUnidades] = useState(0)
+    const {onAdd} = props
+
     const handleStock = {
+
         sumarStock:() => {
             if (stock===0){
                 alert('Out of stock available')
             } else {
                 setUnidades(unidades +1)
                 setStock(stock -1)
-                onAdd(cant+1)
+                 onAdd(unidades+1)
             }
         },
         restarStock: () => {
@@ -24,7 +27,7 @@ const ItemCount = (props,cant) => {
             } else {
                 setUnidades(unidades -1)
                 setStock(stock+1)
-                onAdd(cant-1)
+                 onAdd(unidades-1)
             } 
 
             }
@@ -33,9 +36,9 @@ const ItemCount = (props,cant) => {
            
         }
 
-        useEffect (() => {
-            onAdd(cant)
-        }, [cant])
+         useEffect (() => {
+             onAdd(unidades)
+         }, [unidades])
 
 
 

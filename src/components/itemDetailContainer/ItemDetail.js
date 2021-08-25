@@ -6,15 +6,15 @@ import { Container, Row , Col, Button} from 'react-bootstrap';
 
 
 
-const ItemDetail = ({imgbs,name,price,color,id,frame,stock,cant}) => {
+const ItemDetail = ({imgbs,name,price,color,id,frame,stock}) => {
 
     const classes = useStyles()
 
     const [itemCountVisible, setItemCountVisible] = useState(true)
     const [itemsCount, setItemsCount] = useState(0)
 
-    const onAdd = ([stock]) => {
-        setItemsCount([stock])
+    const onAdd = (unidades) => {
+        setItemsCount(unidades)
     }
 
     const onAddToCart = () => {
@@ -40,7 +40,7 @@ const ItemDetail = ({imgbs,name,price,color,id,frame,stock,cant}) => {
                         <h2>Frame: {frame}</h2>
                         <h2>{color}</h2>
                         <h3>{price}</h3>
-                        {itemCountVisible && <ItemCount stock={cant} onAdd={onAdd} />}
+                        {itemCountVisible && <ItemCount defaultValue = {0} stock={stock} onAdd={onAdd} />}
                         {itemsCount}
                         <Button onClick={onAddToCart} >Agregar al carrito</Button>
                         <Button onClick={onBuy} >Comprar</Button>
